@@ -4,13 +4,13 @@ import org.apache.kafka.streams.processor.api.Processor;
 import org.apache.kafka.streams.processor.api.ProcessorSupplier;
 import org.apache.kafka.streams.processor.api.Record;
 
-class FunctionalPapi<K,V> implements ProcessorSupplier<K,V,K,V> {
+class FunctionalPapi<K,V,VOut> implements ProcessorSupplier<K,V,K,V> {
 
-    public interface FunctionApply {
-        Record apply(final Record value);
+    public interface FunctionApply<K,V,VOut> {
+        VOut apply(final VOut value);
     }
 
-    private FunctionApply functionApply;
+    private FunctionApply<K,V,VOut> functionApply;
 
     @Override
     public Processor<K, V, K, V> get() {
@@ -24,8 +24,8 @@ class FunctionalPapi<K,V> implements ProcessorSupplier<K,V,K,V> {
     private class FunctionalPapiProcessor extends ContextualProcessor {
         @Override
         public void process(Record record) {
-            context().forward(functionApply.apply(record));
-
+            final VOut newValue = functionApply.apply((VOut) record.value());
+            context().forward(record.withValue(newValue));
             return;
 
         }
