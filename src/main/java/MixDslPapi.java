@@ -38,19 +38,14 @@ public class MixDslPapi {
         insertOnly.to("upper-case-with-filter-topic");
 
 
-
-
         TopologyDescription description = builder.build().describe();
         System.out.println(description);
 
 
-
-
-
-        builder.build().addProcessor("lowercase",new FunctionalPapi<>(r-> {
-        return r.toString().toLowerCase();
-        }),"KSTREAM-SOURCE-0000000000")
-            .addSink("sinkTopic","lower-case-topic","lowercase");
+        builder.build().addProcessor("lowercase", new FunctionalPapi<>(r -> {
+            return r.toString().toLowerCase();
+        }), "KSTREAM-SOURCE-0000000000")
+            .addSink("sinkTopic", "lower-case-topic", "lowercase");
 
 
         return builder.build();
