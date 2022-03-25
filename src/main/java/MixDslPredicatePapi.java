@@ -8,11 +8,14 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.*;
 import org.apache.kafka.streams.kstream.*;
 import serdes.JsonSerde;
-
-import java.util.Optional;
 import java.util.Properties;
 
-
+/**
+ * This code is not production level by any stretch of the human psyche, have fun!
+ *
+ * Ta, @jbfletch
+ *
+ */
 public class MixDslPredicatePapi {
     private final Serde<JsonNode> jsonSerde = new JsonSerde();
 

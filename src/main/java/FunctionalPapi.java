@@ -4,6 +4,13 @@ import org.apache.kafka.streams.processor.api.Processor;
 import org.apache.kafka.streams.processor.api.ProcessorSupplier;
 import org.apache.kafka.streams.processor.api.Record;
 
+/**
+ * This code is not production level by any stretch of the human psyche, have fun!
+ *
+ * Ta, @jbfletch
+ *
+ */
+
 class FunctionalPapi<K,V,VOut> implements ProcessorSupplier<K,V,K,V> {
 
     public interface FunctionApply<K,V,VOut> {
