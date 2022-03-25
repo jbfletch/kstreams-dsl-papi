@@ -1,4 +1,3 @@
-import com.bakdata.fluent_kafka_streams_tests.TestTopology;
 import com.bakdata.fluent_kafka_streams_tests.junit5.TestTopologyExtension;
 import org.apache.kafka.common.serialization.Serdes;
 import org.junit.jupiter.api.Test;
