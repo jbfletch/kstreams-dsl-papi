@@ -1,4 +1,4 @@
-import org.apache.kafka.streams.kstream.ValueJoinerWithKey;
+
 import org.apache.kafka.streams.processor.api.ContextualProcessor;
 import org.apache.kafka.streams.processor.api.Processor;
 import org.apache.kafka.streams.processor.api.ProcessorSupplier;
