@@ -32,7 +32,6 @@ public class FunctionalPredicatePapi<K, V> implements ProcessorSupplier<K,V,K,V>
                 // use forward with child here and then break the loop
                 // so that no record is going to be piped to multiple streams
                 context().forward(record);
-                return;
             }
 
         }

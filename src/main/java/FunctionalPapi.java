@@ -33,8 +33,6 @@ class FunctionalPapi<K,V,VOut> implements ProcessorSupplier<K,V,K,V> {
         public void process(Record record) {
             final VOut newValue = functionApply.apply((VOut) record.value());
             context().forward(record.withValue(newValue));
-            return;
-
         }
     }
 }
